@@ -1,0 +1,25 @@
+$main-color: #fff;
+$bg_color: #eee;
+$header_height: 48px;
+$header_sp_height: 48px;
+$header_color: #ddd;
+
+$content_width: 1120px;
+
+
+// set breaking point
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$large-screen-up: 1121px !default;
+$small-screen: 640px !default;
+$medium-screen: 992px !default;
+$large-screen: 1120px !default;
+
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$large-and-down: "only screen and (max-width : #{$large-screen})" !default;
+$large-only: "only screen and (min-width : #{$large-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+$small-only: "only screen and (max-width : #{$small-screen})" !default;
