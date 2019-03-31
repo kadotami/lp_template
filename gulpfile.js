@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var sassLint = require('gulp-sass-lint');
 var pug = require('gulp-pug');
 var connect = require('gulp-connect');
 
@@ -18,6 +19,13 @@ gulp.task('sass', function () {
       .pipe(gulp.dest('./public'));
 });
 
+gulp.task('sass-lint', function () {
+  return gulp.src('./scss/**/*.scss')
+      .pipe(sassLint())
+      .pipe(sassLint.format())
+      .pipe(sassLint.failOnError())
+});
+
 gulp.task('pug', () => {
   return gulp.src('./pug/index.pug')
     .pipe(pug({pretty: true}))
@@ -30,7 +38,7 @@ gulp.task('livereload', function (){
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./scss/**/*.scss', gulp.series('sass','livereload'));
+  gulp.watch('./scss/**/*.scss', gulp.series('sass-lint', 'sass','livereload'));
   gulp.watch('./pug/index.pug', gulp.series('pug','livereload'));
 });
 
